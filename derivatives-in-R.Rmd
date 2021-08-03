@@ -41,3 +41,21 @@ t <- 0
 eval(expr = dg_dt)
 ```
 
+## Find the second derivative with respect to z.
+
+$G(z) = 4.6-1.9z^3$
+
+```{r}
+eq_4 <- expression(4.6 - 1.9 * (z ^ 3))
+
+dG_dz <- D(expr = eq_4, name = 'z')
+
+dG_dz
+
+d2G_d2z <- D(expr = dG_dz, name = 'z')
+
+d2G_d2z
+
+```
+
+

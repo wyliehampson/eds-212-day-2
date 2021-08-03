@@ -198,6 +198,20 @@ t &lt;- 0
 eval(expr = dg_dt)</code></pre>
 <pre><code>## [1] -4</code></pre>
 </div>
+<div id="find-the-second-derivative-with-respect-to-z." class="section level2">
+<h2>Find the second derivative with respect to z.</h2>
+<p><span class="math inline">\(G(z) = 4.6-1.9z^3\)</span></p>
+<pre class="r"><code>eq_4 &lt;- expression(4.6 - 1.9 * (z ^ 3))
+
+dG_dz &lt;- D(expr = eq_4, name = &#39;z&#39;)
+
+dG_dz</code></pre>
+<pre><code>## -(1.9 * (3 * z^2))</code></pre>
+<pre class="r"><code>d2G_d2z &lt;- D(expr = dG_dz, name = &#39;z&#39;)
+
+d2G_d2z</code></pre>
+<pre><code>## -(1.9 * (3 * (2 * z)))</code></pre>
+</div>
 
 
 
