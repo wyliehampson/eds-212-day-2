@@ -58,4 +58,56 @@ d2G_d2z
 
 ```
 
+### Partial derivatives
+
+Find all partial derivatives for $f(x,y,z)=2x^2y-3x+1+4z^4x$
+
+```{r}
+eq_5 <- expression((2 * (x ^ 2) * y) - (3 * x) + 1 + (4 * (z ^ 4) * x))
+
+df_dx <- D(expr = eq_5, name = 'x')
+
+df_dx
+
+df_dy <- D(expr = eq_5, name = 'y')
+
+df_dy
+
+df_dz <- D(expr = eq_5, name = 'z')
+
+df_dz
+
+```
+
+### Make some plots!
+
+```{r}
+eq <- function(x) {
+  
+  2.4 * exp(-0.05 * x) * sin(x)
+  
+}
+
+ggplot(data.frame(x = c(-0.5, 0.5)), aes(x = x)) +
+  stat_function(fun = eq)
+
+```
+```{r}
+ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species)) +
+  labs(x = "Bill length (mm)",
+       y = "Bill depth (mm)",
+       title = "Palmer Penguin Bill Measurements",
+       caption = "Data collected by KB Gormer et al. at Palmer Station") +
+  theme_light()
+```
+```{r}
+ggplot(data = penguins, aes(x = species, y = flipper_length_mm)) +
+  geom_jitter(aes(color = species)) +
+  labs(x = "Flipper length (mm)",
+       y = "Species",
+       title = "Penguin Flipper Length by Species",
+       caption = "Data collected by KB Gormer et al. at Palmer Station") +
+  theme_light()
+```
 
